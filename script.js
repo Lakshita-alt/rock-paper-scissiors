@@ -17,42 +17,22 @@ function getComputerChoice(){
 }
 function getHumanChoice(){
     let choice=prompt("rock paper or scissors").toLowerCase();
+    if (!["rock","scissors","paper"].includes(choice)){
+        choice=prompt("invalid input select from rock paper scissors");
+    }
     return (choice);
 }
 function playground(C,H){
-    if (C=="rock" && H=="paper"){
+    if (C=="rock" && H=="paper" || C=="paper" && H=="scissors" || C=="scissors" && H=="rock" ){
         console.log(++HumanScore,":",ComputerScore);
         return (HumanScore,ComputerScore);
     }
-    else if(C=="paper" && H=="rock"){
-        console.log(HumanScore,":",++ComputerScore);
-        return (HumanScore,ComputerScore);
-
-    }
-    else if (C=="scissors" && H=="paper"){
-        console.log(HumanScore,":",++ComputerScore);
-        return (HumanScore,ComputerScore);
-
-    }
-    else if (C=="paper" && H=="scissors"){
-        console.log(HumanScore,":",++ComputerScore);
-        return (HumanScore,ComputerScore);
-
-    }
-    else if (C=="scissors" && H=="rock"){
-        console.log(++HumanScore,":",ComputerScore);
-        return (HumanScore,ComputerScore);
-
-    }
-    else if(C=="rock" && H=="scissors"){
-        console.log(HumanScore,":",++ComputerScore);
-        return (HumanScore,ComputerScore);
-
+    else if (C===H){
+        console.log(HumanScore,":",ComputerScore);
     }
     else{
-        console.log(HumanScore,":",ComputerScore);
+        console.log(HumanScore,":",++ComputerScore);
         return (HumanScore,ComputerScore);
-
     }
 }
    
